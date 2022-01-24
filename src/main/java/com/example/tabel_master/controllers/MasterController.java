@@ -72,4 +72,18 @@ public class MasterController {
         model.addAttribute("table", this.masterService.findAllTable());
         return "/table/allTable";
     }
+    @GetMapping("/givetable/{id}")
+    public String giveUpTable(@PathVariable("id")Long id, HttpSession session){
+        User userGiveUp = this.userService.findUserById((Long) session.getAttribute("userId"));
+        Master master = this.masterService.findTableById(id);
+        this.masterService.removeTable(userGiveUp, master);
+        return "redirect:/home";
+    }
+    @GetMapping("/pinktable/{id}")
+    public String pinkUpTable(@PathVariable("id")Long id, HttpSession session){
+        User userGiveUp = this.userService.findUserById((Long) session.getAttribute("userId"));
+        Master master = this.masterService.findTableById(id);
+        this.masterService.addTable(userGiveUp, master);
+        return "redirect:/home";
+    }
 }

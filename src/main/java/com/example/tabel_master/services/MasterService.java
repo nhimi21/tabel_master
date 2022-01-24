@@ -36,4 +36,14 @@ public class MasterService {
         }
         this.masterRepository.deleteById(id);
     }
+    public void addTable(User user, Master master){
+        List<User> userList = master.getUsers();
+        userList.add(user);
+        this.masterRepository.save(master);
+    }
+    public void removeTable(User user, Master master){
+        List<User> userList = master.getUsers();
+        userList.remove(user);
+        this.masterRepository.save(master);
+    }
 }

@@ -30,7 +30,7 @@
                 <td>${tab.name}</td>
                 <td>${tab.num_of_guest}</td>
                 <td>${tab.createdAt}</td>
-                <td><a href="/tables/${tab.id}/edit">finished</a> | <a href="/tables/${tab.id}/edit"> edit </a> | <a href="/tables/${tab.id}/edit"> Give Up Table </a></td>
+                <td><a href="/tables/${tab.id}/edit">finished</a> | <a href="/tables/${tab.id}/edit"> edit </a> | <a href="/givetable/${tab.id}"> Give Up Table </a></td>
             </tr>
         </c:forEach>
         </tbody>
